@@ -24,14 +24,14 @@ GOVERNOR=${GOVERNOR:-ondemand}
 case $BRANCH in
 
 	current)
-		export KERNEL_MAJOR_MINOR="6.0" # Major and minor versions of this kernel. For mainline caching.
+		export KERNEL_MAJOR_MINOR="6.0" # Major and minor versions of this kernel. For armbian-next.
 		KERNELBRANCH='branch:linux-6.0.y'
 		KERNELPATCHDIR='meson64-current'
 		;;
 
 	edge)
-		export KERNEL_MAJOR_MINOR="6.1" # Major and minor versions of this kernel. For mainline caching.
-		KERNELBRANCH='tag:v6.1-rc8'     # @TODO: Soon to be KERNELBRANCH='branch:linux-6.1.y'
+		export KERNEL_MAJOR_MINOR="6.1" # Major and minor versions of this kernel. For armbian-next.
+		KERNELBRANCH='branch:linux-6.1.y'
 		KERNELPATCHDIR='meson64-edge'
 		;;
 
@@ -243,7 +243,7 @@ family_tweaks_bsp() {
 
 	mkdir -p "$destination"/etc/X11/xorg.conf.d
 	case "${BOARD}" in
-		"odroidc2" | "nanopik2-s905" | "lepotato" | "lafrite" | "khadas-vim1" | "khadas-vim2" | "aml-s9xx-box" )
+		"odroidc2" | "nanopik2-s905" | "lepotato" | "lafrite" | "khadas-vim1" | "khadas-vim2" | "aml-s9xx-box")
 			cat <<- EOF > "$destination"/etc/X11/xorg.conf.d/02-driver.conf
 				Section "OutputClass"
 				    Identifier "Amlogic"
