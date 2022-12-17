@@ -91,7 +91,7 @@ elif [[ $BOOT_SOC == rk3568 ]]; then
 	DDR_BLOB="${DDR_BLOB:=rk35/rk3568_ddr_1560MHz_v1.10.bin}"
 	BL31_BLOB='rk35/rk3568_bl31_v1.28.elf'
 
-elif [[ $BOOT_SOC == rk3588 ]]; then
+elif [[ $BOOT_SOC == rk3588 || $BOOT_SOC == rk3588s ]]; then
 
 	BOOT_SCENARIO="${BOOT_SCENARIO:=spl-blobs}"
 	DDR_BLOB="${DDR_BLOB:=rk35/rk3588_ddr_lp4_2112MHz_lp5_2736MHz_v1.08.bin}"
