@@ -1039,7 +1039,7 @@ Signed-off-by: Muhammed Efe Cetin <efectn@protonmail.com>
  1 file changed, 120 insertions(+)
 
 diff --git a/arch/arm64/boot/dts/rockchip/rk3588s-khadas-edge2.dts b/arch/arm64/boot/dts/rockchip/rk3588s-khadas-edge2.dts
-index 2022a174594c..62167dca75b7 100644
+index 2022a174594c..2d546640ab37 100644
 --- a/arch/arm64/boot/dts/rockchip/rk3588s-khadas-edge2.dts
 +++ b/arch/arm64/boot/dts/rockchip/rk3588s-khadas-edge2.dts
 @@ -6,6 +6,7 @@
@@ -1166,7 +1166,6 @@ index 2022a174594c..62167dca75b7 100644
 +&usbdp_phy0 {
 +	orientation-switch;
 +	mode-switch;
-+	svid = <0xff01>;
 +	sbu1-dc-gpios = <&gpio4 RK_PA0 GPIO_ACTIVE_HIGH>;
 +	sbu2-dc-gpios = <&gpio4 RK_PA1 GPIO_ACTIVE_HIGH>;
 +	status = "okay";
@@ -1189,6 +1188,7 @@ index 2022a174594c..62167dca75b7 100644
 +
 +&usb_host0_xhci {
 +	usb-role-switch;
++	role-switch-default-mode = "host";
 +	status = "okay";
 +
 +	port {
@@ -1217,7 +1217,7 @@ Subject: arm64: dts: rockchip: Add bluetooth rfkill to Khadas Edge 2
  1 file changed, 9 insertions(+)
 
 diff --git a/arch/arm64/boot/dts/rockchip/rk3588s-khadas-edge2.dts b/arch/arm64/boot/dts/rockchip/rk3588s-khadas-edge2.dts
-index 62167dca75b7..b95a36b717f1 100644
+index 2d546640ab37..db624a0c74cc 100644
 --- a/arch/arm64/boot/dts/rockchip/rk3588s-khadas-edge2.dts
 +++ b/arch/arm64/boot/dts/rockchip/rk3588s-khadas-edge2.dts
 @@ -77,6 +77,15 @@ blue_led: led-2 {
@@ -1249,7 +1249,7 @@ Subject: arm64: dts: rockchip: Add HDMI & VOP2 to Khadas Edge 2
  1 file changed, 36 insertions(+)
 
 diff --git a/arch/arm64/boot/dts/rockchip/rk3588s-khadas-edge2.dts b/arch/arm64/boot/dts/rockchip/rk3588s-khadas-edge2.dts
-index b95a36b717f1..c533b3b8c8dc 100644
+index db624a0c74cc..856c3a19d4f6 100644
 --- a/arch/arm64/boot/dts/rockchip/rk3588s-khadas-edge2.dts
 +++ b/arch/arm64/boot/dts/rockchip/rk3588s-khadas-edge2.dts
 @@ -7,6 +7,7 @@
@@ -1260,14 +1260,14 @@ index b95a36b717f1..c533b3b8c8dc 100644
  #include "rk3588s.dtsi"
  
  / {
-@@ -821,6 +822,7 @@ usbdp_phy0_dp_altmode_mux: endpoint@1 {
+@@ -820,6 +821,7 @@ usbdp_phy0_dp_altmode_mux: endpoint@1 {
  };
  
  &usb_host0_xhci {
 +	dr-mode = "otg";
  	usb-role-switch;
+ 	role-switch-default-mode = "host";
  	status = "okay";
- 
 @@ -845,3 +847,37 @@ &usb_host1_ohci {
  &usb_host2_xhci {
  	status = "okay";
@@ -1319,7 +1319,7 @@ Subject: arm64: dts: rockchip: Add AP6275P wireless support to Khadas Edge 2
  1 file changed, 17 insertions(+)
 
 diff --git a/arch/arm64/boot/dts/rockchip/rk3588s-khadas-edge2.dts b/arch/arm64/boot/dts/rockchip/rk3588s-khadas-edge2.dts
-index c533b3b8c8dc..54df0a4c32a5 100644
+index 856c3a19d4f6..36c71aa583af 100644
 --- a/arch/arm64/boot/dts/rockchip/rk3588s-khadas-edge2.dts
 +++ b/arch/arm64/boot/dts/rockchip/rk3588s-khadas-edge2.dts
 @@ -361,6 +361,23 @@ &pcie2x1l2 {
@@ -1359,7 +1359,7 @@ Subject: arm64: dts: rockchip: Add cpufreq support to Khadas Edge 2
  1 file changed, 10 insertions(+), 2 deletions(-)
 
 diff --git a/arch/arm64/boot/dts/rockchip/rk3588s-khadas-edge2.dts b/arch/arm64/boot/dts/rockchip/rk3588s-khadas-edge2.dts
-index 54df0a4c32a5..3248356e3d8f 100644
+index 36c71aa583af..a00aec44a6b4 100644
 --- a/arch/arm64/boot/dts/rockchip/rk3588s-khadas-edge2.dts
 +++ b/arch/arm64/boot/dts/rockchip/rk3588s-khadas-edge2.dts
 @@ -161,34 +161,42 @@ vdd_3v3_sd: vdd-3v3-sd-regulator {
@@ -1436,7 +1436,7 @@ Subject: arm64: dts: rockchip: Add GPU to Khadas Edge 2
  1 file changed, 6 insertions(+)
 
 diff --git a/arch/arm64/boot/dts/rockchip/rk3588s-khadas-edge2.dts b/arch/arm64/boot/dts/rockchip/rk3588s-khadas-edge2.dts
-index 3248356e3d8f..cf29563736ea 100644
+index a00aec44a6b4..a4c4cc4198cb 100644
 --- a/arch/arm64/boot/dts/rockchip/rk3588s-khadas-edge2.dts
 +++ b/arch/arm64/boot/dts/rockchip/rk3588s-khadas-edge2.dts
 @@ -505,6 +505,7 @@ rk806_dvs3_null: dvs3-null-pins {
