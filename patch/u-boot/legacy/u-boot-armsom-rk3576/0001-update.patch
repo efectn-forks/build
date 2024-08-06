@@ -1,0 +1,25 @@
+From a53e27a06e612e87c462181a28e32a6f42735561 Mon Sep 17 00:00:00 2001
+From: Muhammed Efe Cetin <efectn@protonmail.com>
+Date: Tue, 6 Aug 2024 16:17:25 +0300
+Subject: [PATCH 1/1] update
+
+---
+ cmd/source.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/cmd/source.c b/cmd/source.c
+index 6b1c8b744b..cf820c072a 100644
+--- a/cmd/source.c
++++ b/cmd/source.c
+@@ -87,7 +87,7 @@ source (ulong addr, const char *fit_uname)
+ 		 * past the zero-terminated sequence of image lengths to get
+ 		 * to the actual image data
+ 		 */
+-		while (*data++ != IMAGE_PARAM_INVAL);
++		while (*data++);
+ 		break;
+ #endif
+ #if defined(CONFIG_FIT)
+-- 
+2.46.0
+
