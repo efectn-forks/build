@@ -1,0 +1,25 @@
+From ec534f92902ceab387579e84b52004d93eb1708d Mon Sep 17 00:00:00 2001
+From: Muhammed Efe Cetin <efectn@protonmail.com>
+Date: Tue, 6 Aug 2024 17:42:57 +0300
+Subject: [PATCH 1/1] update
+
+---
+ arch/arm/dts/rk3576-u-boot.dtsi | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/arch/arm/dts/rk3576-u-boot.dtsi b/arch/arm/dts/rk3576-u-boot.dtsi
+index 2abdef5c08..043069c5c5 100644
+--- a/arch/arm/dts/rk3576-u-boot.dtsi
++++ b/arch/arm/dts/rk3576-u-boot.dtsi
+@@ -14,7 +14,7 @@
+ 
+ 	chosen {
+ 		stdout-path = &uart0;
+-		u-boot,spl-boot-order = &sdmmc, &spi_nand, &spi_nor, "same-as-spl";
++		u-boot,spl-boot-order = &sdmmc, &spi_nor, &sdhci, &spi_nand;
+ 	};
+ 
+ 	secure-otp@2a480000 {
+-- 
+2.46.0
+
