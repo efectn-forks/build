@@ -525,6 +525,9 @@ function compile_uboot() {
 	EOF
 
 	# copy license files, config, etc.
+
+	echo "bruhmoment"
+	ls -la .
 	[[ -f .config && -n $BOOTCONFIG ]] && run_host_command_logged cp .config "$uboottempdir/usr/lib/u-boot/${BOOTCONFIG}" # legacy and @TODO should be removed as it has only the last target; we now have per-target configs and defconfigs
 	[[ -f COPYING ]] && run_host_command_logged cp COPYING "$uboottempdir/usr/lib/u-boot/LICENSE"
 	[[ -f Licenses/README ]] && run_host_command_logged cp Licenses/README "$uboottempdir/usr/lib/u-boot/LICENSE"
